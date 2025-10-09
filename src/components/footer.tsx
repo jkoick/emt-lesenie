@@ -51,9 +51,6 @@ export function Footer() {
                 >
                   <Facebook className="size-5" />
                 </a>
-                <div className="rounded-full border border-border/60 bg-background/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-                  #EMTLešenie
-                </div>
               </div>
             </div>
 
