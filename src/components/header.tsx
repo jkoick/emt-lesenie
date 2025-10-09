@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Menu, X, Facebook, Instagram } from "lucide-react"
+import { useState } from "react";
+import { Menu, X, Facebook, Instagram } from "lucide-react";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMenuOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
     }
-  }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -24,8 +24,12 @@ export function Header() {
               EMT
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg leading-tight">EMT Lešenie</span>
-              <span className="text-xs text-muted-foreground">Prenájom & Predaj</span>
+              <span className="font-bold text-lg leading-tight">
+                EMT Lešenie
+              </span>
+              <span className="text-xs text-muted-foreground">
+                Prenájom & Predaj
+              </span>
             </div>
           </div>
 
@@ -33,31 +37,31 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("domov")}
-              className="text-sm font-medium hover:text-accent transition-colors"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
               Domov
             </button>
             <button
               onClick={() => scrollToSection("o-nas")}
-              className="text-sm font-medium hover:text-accent transition-colors"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
               O nás
             </button>
             <button
               onClick={() => scrollToSection("galeria")}
-              className="text-sm font-medium hover:text-accent transition-colors"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
               Galéria
             </button>
             <button
               onClick={() => scrollToSection("cennik")}
-              className="text-sm font-medium hover:text-accent transition-colors"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
               Cenník
             </button>
             <button
               onClick={() => scrollToSection("kontakt")}
-              className="text-sm font-medium hover:text-accent transition-colors"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
               Kontakt
             </button>
@@ -84,8 +88,15 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2">
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2"
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -95,31 +106,31 @@ export function Header() {
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection("domov")}
-                className="text-left py-2 hover:text-accent transition-colors"
+                className="text-left py-2 text-foreground hover:text-muted-foreground transition-colors"
               >
                 Domov
               </button>
               <button
                 onClick={() => scrollToSection("o-nas")}
-                className="text-left py-2 hover:text-accent transition-colors"
+                className="text-left py-2 text-foreground hover:text-muted-foreground transition-colors"
               >
                 O nás
               </button>
               <button
                 onClick={() => scrollToSection("galeria")}
-                className="text-left py-2 hover:text-accent transition-colors"
+                className="text-left py-2 text-foreground hover:text-muted-foreground transition-colors"
               >
                 Galéria
               </button>
               <button
                 onClick={() => scrollToSection("cennik")}
-                className="text-left py-2 hover:text-accent transition-colors"
+                className="text-left py-2 text-foreground hover:text-muted-foreground transition-colors"
               >
                 Cenník
               </button>
               <button
                 onClick={() => scrollToSection("kontakt")}
-                className="text-left py-2 hover:text-accent transition-colors"
+                className="text-left py-2 text-foreground hover:text-muted-foreground transition-colors"
               >
                 Kontakt
               </button>
@@ -146,5 +157,5 @@ export function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }

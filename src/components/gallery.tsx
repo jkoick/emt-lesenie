@@ -1,9 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
+
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
     {
@@ -56,36 +58,45 @@ export function Gallery() {
       alt: "Lešenie na kamióne",
       title: "Expedícia",
     },
-  ]
+  ];
 
   return (
     <section id="galeria" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">Galéria</h2>
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
+            Galéria
+          </h2>
           <p className="text-xl text-muted-foreground leading-relaxed font-semibold">
             Základ pre vašu stavbu začína u nás
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image, index) => (
-            <div
-              key={index}
-              className="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer shadow-lg hover:shadow-xl transition-shadow"
-              onClick={() => setSelectedImage(index)}
+            <ScrollReveal
+              key={image.title}
+              delay={index * 80}
+              className="h-full"
             >
-              <img
-                src={image.src || "/placeholder.svg"}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-bold text-white">{image.title}</h3>
+              <div
+                className="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer shadow-lg hover:shadow-xl transition-shadow"
+                onClick={() => setSelectedImage(index)}
+              >
+                <img
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-bold text-white">
+                      {image.title}
+                    </h3>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -112,5 +123,5 @@ export function Gallery() {
         )}
       </div>
     </section>
-  )
+  );
 }

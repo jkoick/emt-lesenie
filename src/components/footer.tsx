@@ -1,4 +1,4 @@
-import { Instagram, Facebook } from "lucide-react"
+import { Instagram, Facebook } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,7 +8,8 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">EMT Lešenie</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Sme tu, aby sme vám uľahčili prácu. Prenájom a predaj lešenia, príslušenstva s osobným prístupom.
+              Sme tu, aby sme vám uľahčili prácu. Prenájom a predaj lešenia,
+              príslušenstva s osobným prístupom.
             </p>
             <div className="flex gap-4">
               <a
@@ -46,12 +47,18 @@ export function Footer() {
             <h4 className="font-bold">Kontakt</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="tel:+421904350340" className="hover:text-primary transition-colors">
+                <a
+                  href="tel:+421904350340"
+                  className="hover:text-primary transition-colors"
+                >
                   +421 904 350 340
                 </a>
               </li>
               <li>
-                <a href="mailto:emtlesenie@gmail.com" className="hover:text-primary transition-colors">
+                <a
+                  href="mailto:emtlesenie@gmail.com"
+                  className="hover:text-primary transition-colors"
+                >
                   emtlesenie@gmail.com
                 </a>
               </li>
@@ -61,9 +68,12 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} EMT Lešenie. Všetky práva vyhradené.</p>
+          <p>
+            &copy; {new Date().getFullYear()} EMT Lešenie. Všetky práva
+            vyhradené.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
