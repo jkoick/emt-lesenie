@@ -10,16 +10,18 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <Header />
-      <Hero />
-      <Features />
-      <About />
-      <Services />
-      <Gallery />
-      <Pricing />
-      <Contact />
-      <Footer />
-    </main>
+      <main className="flex flex-1 flex-col">
+        <Hero />
+        <Features />
+        <About />
+        <Services />
+        <Gallery />
+        <Pricing />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   )
 }

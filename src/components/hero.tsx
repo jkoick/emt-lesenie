@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { Phone } from "lucide-react";
+import { ArrowUpRight, Phone } from "lucide-react";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -32,8 +32,11 @@ export function Hero() {
       frame = null;
       const rect = sectionEl.getBoundingClientRect();
       const offset = rect.top;
-      const parallaxStrength = 0.25;
-      const translateY = Math.max(Math.min(offset * parallaxStrength * -1, 160), -160);
+      const parallaxStrength = 0.22;
+      const translateY = Math.max(
+        Math.min(offset * parallaxStrength * -1, 160),
+        -160
+      );
       backgroundEl.style.transform = `translateY(${translateY}px) scale(1.08)`;
     };
 
@@ -67,12 +70,15 @@ export function Hero() {
       }
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
-      prefersReducedMotion?.removeEventListener("change", onMotionPreferenceChange);
+      prefersReducedMotion?.removeEventListener(
+        "change",
+        onMotionPreferenceChange
+      );
     };
   }, []);
 
-  const scrollToContact = () => {
-    const element = document.getElementById("kontakt");
+  const scrollToTarget = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -82,9 +88,9 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="domov"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative flex min-h-[88vh] items-center overflow-hidden pt-24 md:pt-32"
     >
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 -z-20 overflow-hidden">
         <div
           ref={backgroundRef}
           className="absolute inset-0 bg-cover bg-center will-change-transform"
@@ -94,39 +100,42 @@ export function Hero() {
             transform: "translateY(0px) scale(1.08)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <ScrollReveal className="max-w-4xl mx-auto text-center space-y-8">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-balance text-white">
-            VAŠA STAVBA. NAŠE LEŠENIE.
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto text-pretty">
-            Sme tu, aby sme vám uľahčili prácu. Prenájom a predaj lešenia, príslušenstva s osobným prístupom.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button
-              size="lg"
-              onClick={scrollToContact}
-              className="text-lg px-8 py-6 bg-yellow-500 text-black hover:bg-yellow-400 font-semibold"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              Kontaktujte nás
-            </Button>
-          </div>
-        </ScrollReveal>
-      </div>
-
-      {/* Decorative wave */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          <path
-            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="white"
-          />
-        </svg>
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto max-w-6xl grid gap-10 px-4 md:gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+          <ScrollReveal className="space-y-8 text-left text-white">
+            <div className="space-y-5">
+              <h1 className="text-5xl font-bold text-balance sm:text-7xl">
+                VAŠA STAVBA. NAŠE LEŠENIE.
+              </h1>
+              <p className="max-w-2xl text-base leading-relaxed text-white/95 sm:text-base md:text-lg">
+                Sme tu, aby sme vám uľahčili prácu. Prenájom a predaj lešenia,
+                príslušenstva s osobným prístupom.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button
+                size="default"
+                onClick={() => scrollToTarget("kontakt")}
+                className="rounded-full bg-yellow-500 px-9 py-5 text-xs font-semibold uppercase tracking-[0.32em] text-black transition hover:bg-yellow-400"
+              >
+                <Phone className="size-4" />
+                Kontaktujte nás
+              </Button>
+              <Button
+                size="default"
+                variant="outline"
+                onClick={() => scrollToTarget("sluzby")}
+                className="rounded-full border-white/25 bg-white/10 px-9 py-5 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-white/15 hover:text-white"
+              >
+                Zistite viac
+                <ArrowUpRight className="size-5" />
+              </Button>
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
