@@ -4,41 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
+import config from "@/data/config.json";
 
 export function Pricing() {
-  const usedScaffolding = [
-    { name: "Rám lešenia používaný š:1m - v:2m", price: "41,90 €" },
-    { name: "Podlaha pozinkovaná používaná 0,5x1,8m", price: "20,90 €" },
-    { name: "Podlaha prielezová s rebríkom používaná", price: "95,90 €" },
-    { name: "Vrchný ukončovací stĺpik používaný", price: "14,90 €" },
-    { name: "Okopový plech používaný", price: "6,90 €" },
-  ];
-
-  const newComponents = [
-    { name: "Noha nastaviteľná nová pozinkovaná 0,3m", price: "7,50 €" },
-    { name: "Noha nastaviteľná nová pozinkovaná 0,6m", price: "9,50 €" },
-    { name: "Noha nastaviteľná nová pozinkovaná 1m", price: "12,50 €" },
-    { name: "Spojka pevná", price: "5,50 €" },
-    { name: "Spojka otočná", price: "5,90 €" },
-    { name: "Kotva 0,6m", price: "8,95 €" },
-    { name: "Kotva 1m", price: "10,90 €" },
-    { name: "Skrutka kotviaca 28cm", price: "2,95 €" },
-  ];
-
-  const sets = [
-    {
-      title: "Sada použitého lešenia cca 160m²",
-      description:
-        "38x rám lešenia, 64x podlaha pozinkovaná, 18x nastavovacia noha pozinkovaná 0,3m + diagonálne tyče a zábradlia k postaveniu.",
-      price: "Kontaktujte nás",
-    },
-    {
-      title: "Sada použitého lešenia cca 90m²",
-      description:
-        "18x rám lešenia, 32x podlaha pozinkovaná nekĺzavá, 18x nastavovacia noha pozinkovaná 0,3m + diagonálne tyče a zábradlia k postaveniu.",
-      price: "1 529 €",
-    },
-  ];
+  const { usedScaffolding, newComponents, sets, notes } = config.pricing;
 
   const scrollToContact = () => {
     const element = document.getElementById("kontakt");
@@ -151,9 +120,9 @@ export function Pricing() {
 
           <ScrollReveal delay={280} className="rounded-[26px] border border-border/60 bg-muted/80 p-6 text-sm leading-relaxed text-muted-foreground shadow-[0_22px_64px_-58px_rgba(15,23,42,0.55)]">
             <ul className="space-y-2">
-              <li>• Zábradlia a diagonálne tyče sú dodávané ku každým rámom aj pri kúpe na samostatné komponenty.</li>
-              <li>• Lešenie možno vyskladať individuálne podľa potreby zákazníka.</li>
-              <li>• Ceny sú uvádzané bez DPH. Pre platcov DPH účtujeme s prenosom daňovej povinnosti.</li>
+              {notes.map((note, index) => (
+                <li key={index}>• {note}</li>
+              ))}
             </ul>
           </ScrollReveal>
         </div>
@@ -167,7 +136,7 @@ export function Pricing() {
             Kontaktujte nás pre cenovú ponuku
           </Button>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-            Reagujeme do 24 hodín
+            Reagujeme do {config.contact.responseTime}
           </p>
         </ScrollReveal>
       </div>

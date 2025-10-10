@@ -1,0 +1,150 @@
+{
+  "images": {
+    "hero": {
+      "filename": "hero-background.jpg",
+      "alt": "Lešenie na bytovom dome"
+    },
+    "about": {
+      "filename": "about-feature.jpg",
+      "alt": "Tím EMT Lešenie pripravuje certifikované lešenie"
+    },
+    "gallery": [
+      {
+        "filename": "gallery-1.jpg",
+        "title": "Rodinný dom",
+        "description": "Lešenie na rodinnom dome"
+      },
+      {
+        "filename": "gallery-2.jpg",
+        "title": "Bytový dom",
+        "description": "Lešenie na bytovom dome"
+      },
+      {
+        "filename": "gallery-3.jpg",
+        "title": "Naše vybavenie",
+        "description": "Komponenty lešenia"
+      },
+      {
+        "filename": "gallery-4.jpg",
+        "title": "Sklad komponentov",
+        "description": "Sklad lešenia"
+      },
+      {
+        "filename": "gallery-5.jpg",
+        "title": "Rámové lešenie",
+        "description": "Rámové lešenie"
+      },
+      {
+        "filename": "gallery-6.jpg",
+        "title": "Doprava",
+        "description": "Doprava lešenia"
+      },
+      {
+        "filename": "gallery-7.jpg",
+        "title": "Montáž",
+        "description": "Montáž lešenia"
+      },
+      {
+        "filename": "gallery-8.jpg",
+        "title": "Skladové zásoby",
+        "description": "Sklad materiálu"
+      },
+      {
+        "filename": "gallery-9.jpg",
+        "title": "Realizovaný projekt",
+        "description": "Kompletné lešenie"
+      },
+      {
+        "filename": "gallery-10.jpg",
+        "title": "Expedícia",
+        "description": "Lešenie na kamióne"
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+421 904 350 340",
+    "email": "emtlesenie@gmail.com",
+    "address": "Petrovce nad Laborcom",
+    "addressDescription": "Sklad máme v súkromných priestoroch kde vieme flexibilne reagovať.",
+    "responseTime": "24 hodín"
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com"
+  },
+  "pricing": {
+    "usedScaffolding": [
+      {
+        "name": "Rám lešenia používaný š:1m - v:2m",
+        "price": "41,90 €"
+      },
+      {
+        "name": "Podlaha pozinkovaná používaná 0,5x1,8m",
+        "price": "20,90 €"
+      },
+      {
+        "name": "Podlaha prielezová s rebríkom používaná",
+        "price": "95,90 €"
+      },
+      {
+        "name": "Vrchný ukončovací stĺpik používaný",
+        "price": "14,90 €"
+      },
+      {
+        "name": "Okopový plech používaný",
+        "price": "6,90 €"
+      }
+    ],
+    "newComponents": [
+      {
+        "name": "Noha nastaviteľná nová pozinkovaná 0,3m",
+        "price": "7,50 €"
+      },
+      {
+        "name": "Noha nastaviteľná nová pozinkovaná 0,6m",
+        "price": "9,50 €"
+      },
+      {
+        "name": "Noha nastaviteľná nová pozinkovaná 1m",
+        "price": "12,50 €"
+      },
+      {
+        "name": "Spojka pevná",
+        "price": "5,50 €"
+      },
+      {
+        "name": "Spojka otočná",
+        "price": "5,90 €"
+      },
+      {
+        "name": "Kotva 0,6m",
+        "price": "8,95 €"
+      },
+      {
+        "name": "Kotva 1m",
+        "price": "10,90 €"
+      },
+      {
+        "name": "Skrutka kotviaca 28cm",
+        "price": "2,95 €"
+      }
+    ],
+    "sets": [
+      {
+        "title": "Sada použitého lešenia cca 160m²",
+        "description": "38x rám lešenia, 64x podlaha pozinkovaná, 18x nastavovacia noha pozinkovaná 0,3m + diagonálne tyče a zábradlia k postaveniu.",
+        "price": "Kontaktujte nás"
+      },
+      {
+        "title": "Sada použitého lešenia cca 90m²",
+        "description": "18x rám lešenia, 32x podlaha pozinkovaná nekĺzavá, 18x nastavovacia noha pozinkovaná 0,3m + diagonálne tyče a zábradlia k postaveniu.",
+        "price": "1 529 €"
+      }
+    ],
+    "notes": [
+      "Zábradlia a diagonálne tyče sú dodávané ku každým rámom aj pri kúpe na samostatné komponenty.",
+      "Lešenie možno vyskladať individuálne podľa potreby zákazníka.",
+      "Ceny sú uvádzané bez DPH. Pre platcov DPH účtujeme s prenosom daňovej povinnosti."
+    ]
+  }
+}

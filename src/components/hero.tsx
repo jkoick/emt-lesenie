@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ArrowUpRight, Phone } from "lucide-react";
+import config from "@/data/config.json";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -95,8 +96,7 @@ export function Hero() {
           ref={backgroundRef}
           className="absolute inset-0 bg-cover bg-center will-change-transform"
           style={{
-            backgroundImage:
-              "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/72f6b3c5-03fd-4cb3-a88b-2fd4212013fe%20%281%29.JPG-vgQaCzCPMlAaRkDc7ukoSraYFUR1Km.jpeg')",
+            backgroundImage: `url('/images/${config.images.hero.filename}')`,
             transform: "translateY(0px) scale(1.08)",
           }}
         />

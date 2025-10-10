@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
+import config from "@/data/config.json";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -39,24 +40,23 @@ export function Contact() {
     {
       icon: Phone,
       title: "Tel",
-      value: "+421 904 350 340",
-      href: "tel:+421904350340",
+      value: config.contact.phone,
+      href: `tel:${config.contact.phone.replace(/\s/g, "")}`,
       description: "",
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "emtlesenie@gmail.com",
-      href: "mailto:emtlesenie@gmail.com",
+      value: config.contact.email,
+      href: `mailto:${config.contact.email}`,
       description: "",
     },
     {
       icon: MapPin,
       title: "Adresa",
-      value: "Petrovce nad Laborcom",
+      value: config.contact.address,
       href: undefined,
-      description:
-        "Sklad máme v súkromných priestoroch kde vieme flexibilne reagovať.",
+      description: config.contact.addressDescription,
     },
   ];
 
@@ -77,7 +77,7 @@ export function Contact() {
             Sme pripravení pomôcť vašej stavbe rásť
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-            Pošlite nám základné informácie o projekte – ozveme sa do 24 hodín s
+            Pošlite nám základné informácie o projekte – ozveme sa do {config.contact.responseTime} s
             návrhom lešenia a cenovou kalkuláciou.
           </p>
         </ScrollReveal>
@@ -234,7 +234,7 @@ export function Contact() {
                     Odoslať správu
                   </Button>
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                    odpovieme do 24 hodín
+                    odpovieme do {config.contact.responseTime}
                   </p>
                 </div>
               </form>

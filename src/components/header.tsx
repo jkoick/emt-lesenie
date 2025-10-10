@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Facebook, Instagram, ArrowUpRight } from "lucide-react";
+import config from "@/data/config.json";
 
 const NAV_LINKS = [
   { label: "Domov", target: "domov" },
@@ -84,7 +85,7 @@ export function Header() {
           <div className="hidden items-center gap-1.5 xl:gap-2.5 lg:flex">
             <div className="flex items-center gap-1 xl:gap-2.5">
               <a
-                href="https://instagram.com"
+                href={config.socialMedia.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={[
@@ -98,7 +99,7 @@ export function Header() {
                 <Instagram className="size-4 xl:size-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href={config.socialMedia.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={[
@@ -156,7 +157,7 @@ export function Header() {
               <div className="flex items-center justify-between gap-3 rounded-xl border border-border/70 bg-background/80 px-3 py-2.5">
                 <div className="flex items-center gap-2">
                   <a
-                    href="https://instagram.com"
+                    href={config.socialMedia.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex size-9 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
@@ -165,7 +166,7 @@ export function Header() {
                     <Instagram className="size-4" />
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href={config.socialMedia.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex size-9 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"

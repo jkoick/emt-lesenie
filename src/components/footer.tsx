@@ -1,6 +1,7 @@
 import { Instagram, Facebook } from "lucide-react";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
+import config from "@/data/config.json";
 
 export function Footer() {
   const navigation = [
@@ -34,7 +35,7 @@ export function Footer() {
               </p>
               <div className="flex flex-wrap items-center gap-3.5">
                 <a
-                  href="https://instagram.com"
+                  href={config.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex size-10 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
@@ -43,7 +44,7 @@ export function Footer() {
                   <Instagram className="size-5" />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href={config.socialMedia.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex size-11 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
@@ -80,23 +81,23 @@ export function Footer() {
                 <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
                   <li>
                     <a
-                      href="tel:+421904350340"
+                      href={`tel:${config.contact.phone.replace(/\s/g, "")}`}
                       className="font-semibold text-foreground transition hover:text-yellow-700"
                     >
-                      +421 904 350 340
+                      {config.contact.phone}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="mailto:emtlesenie@gmail.com"
+                      href={`mailto:${config.contact.email}`}
                       className="font-semibold text-foreground transition hover:text-yellow-700"
                     >
-                      emtlesenie@gmail.com
+                      {config.contact.email}
                     </a>
                   </li>
-                  <li>Petrovce nad Laborcom</li>
+                  <li>{config.contact.address}</li>
                   <li className="rounded-[18px] border border-border/50 bg-background/80 px-4 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-                    Reagujeme do 24 hodín
+                    Reagujeme do {config.contact.responseTime}
                   </li>
                 </ul>
               </div>

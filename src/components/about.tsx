@@ -1,6 +1,7 @@
 import { CheckCircle2 } from "lucide-react";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
+import config from "@/data/config.json";
 
 export function About() {
   const priorities = [
@@ -111,8 +112,8 @@ export function About() {
 
               <div className="group relative h-[360px] overflow-hidden rounded-[32px] border-white/15 bg-black shadow-[0_40px_100px_-60px_rgba(15,23,42,0.85)] sm:h-[420px] lg:h-full lg:flex lg:flex-col">
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a51e2f79-b3a9-4dc1-8533-9a804724a05c%20%281%29.JPG-7ebGsoRE2qsIZQnrOnBDiqoZ56qa69.jpeg"
-                  alt="Tím EMT Lešenie pripravuje certifikované lešenie"
+                  src={`/images/${config.images.about.filename}`}
+                  alt={config.images.about.alt}
                   className="h-full w-full object-cover opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-100 transition-opacity duration-300 lg:opacity-0 lg:group-hover:opacity-100" />
