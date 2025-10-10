@@ -111,8 +111,8 @@ export function Hero() {
                 VAŠA STAVBA. NAŠE LEŠENIE.
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-white/95 sm:text-base md:text-lg">
-                Sme tu, aby sme vám uľahčili prácu. Prenájom a predaj lešenia,
-                príslušenstva s osobným prístupom.
+                Sme tu aby sme Vám uľahčili prácu. Prenájom a predaj lešenia,
+                príslušenstva so zameraním na individuálne potreby zákazníka.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">

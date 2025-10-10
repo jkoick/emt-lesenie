@@ -94,21 +94,26 @@ export function Gallery() {
                   alt={image.alt}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-75 transition-opacity duration-300 group-hover:opacity-90" />
-                <div className="absolute inset-x-0 bottom-0 p-4 text-left text-white">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-yellow-200/75">
-                    EMT Lešenie
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold leading-tight">
-                    {image.title}
-                  </h3>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-yellow-200/70 transition-colors group-hover:text-yellow-200">
-                    Zobraziť detail{" "}
-                    <span className="text-yellow-300 transition-transform group-hover:translate-x-0.5">
-                      →
-                    </span>
-                  </span>
-                </div>
+                {/* Mobile: overlay always visible */}
+                {image.title && (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-75 transition-opacity duration-300 group-hover:opacity-90" />
+                    <div className="absolute inset-x-0 bottom-0 p-4 text-left text-white">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-yellow-200/75">
+                        EMT Lešenie
+                      </p>
+                      <h3 className="mt-2 text-lg font-semibold leading-tight">
+                        {image.title}
+                      </h3>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-yellow-200/70 transition-colors group-hover:text-yellow-200">
+                        Zobraziť detail{" "}
+                        <span className="text-yellow-300 transition-transform group-hover:translate-x-0.5">
+                          →
+                        </span>
+                      </span>
+                    </div>
+                  </>
+                )}
               </button>
             ))}
           </div>
@@ -143,14 +148,17 @@ export function Gallery() {
                   alt={image.alt}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-75 transition-opacity duration-300 group-hover:opacity-90" />
-                <div className="absolute inset-x-0 bottom-0 p-4 text-left text-white">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-yellow-200/75">
+                {/* Desktop: overlay appears on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-90" />
+                <div className="absolute inset-x-0 bottom-0 p-4 text-left text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {image.title && (
+                    <h3 className="text-lg font-semibold leading-tight">
+                      {image.title}
+                    </h3>
+                  )}
+                  <p className={`text-[10px] font-semibold uppercase tracking-[0.28em] text-yellow-200/75 ${image.title ? 'mt-2' : ''}`}>
                     EMT Lešenie
                   </p>
-                  <h3 className="mt-2 text-lg font-semibold leading-tight">
-                    {image.title}
-                  </h3>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-yellow-200/70 transition-colors group-hover:text-yellow-200">
                     Zobraziť detail{" "}
                     <span className="text-yellow-300 transition-transform group-hover:translate-x-0.5">

@@ -45,9 +45,15 @@ export function Features() {
               Profesionálne lešenie pre vašu stavbu
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Lešenie je základom bezpečnej stavby. Dodáme kompletné riešenie –
-              od návrhu a logistiky až po certifikované komponenty pripravené na
-              okamžité použitie.
+              Lešenie je základom bezpečnej stavby. Lešenie je dočasná montovaná
+              konštrukcia, ktorá zabezpečuje bezpečný prístup k práci vo výškach
+              pri stavbách, rekonštrukciách či údržbe.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Okrem ochrany pracovníkov zlepšuje organizáciu a efektivitu
+              stavebných prác. Umožňuje jednoduchší presun materiálu a rýchlejší
+              priebeh výstavby. Vďaka týmto výhodám je neodmysliteľnou súčasťou
+              moderného stavebníctva.
             </p>
           </ScrollReveal>
         </div>

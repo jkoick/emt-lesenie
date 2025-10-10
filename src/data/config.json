@@ -36,13 +36,13 @@
       },
       {
         "filename": "gallery-6.jpg",
-        "title": "Doprava",
-        "description": "Doprava lešenia"
+        "title": "",
+        "description": ""
       },
       {
         "filename": "gallery-7.jpg",
-        "title": "Montáž",
-        "description": "Montáž lešenia"
+        "title": "",
+        "description": ""
       },
       {
         "filename": "gallery-8.jpg",
@@ -56,8 +56,18 @@
       },
       {
         "filename": "gallery-10.jpg",
-        "title": "Expedícia",
+        "title": "",
         "description": "Lešenie na kamióne"
+      },
+      {
+        "filename": "gallery-11.jpg",
+        "title": "Nastaviteľné päty",
+        "description": ""
+      },
+      {
+        "filename": "gallery-12.jpg",
+        "title": "Spojovací materiál",
+        "description": ""
       }
     ]
   },
@@ -138,7 +148,7 @@
       {
         "title": "Sada použitého lešenia cca 90m²",
         "description": "18x rám lešenia, 32x podlaha pozinkovaná nekĺzavá, 18x nastavovacia noha pozinkovaná 0,3m + diagonálne tyče a zábradlia k postaveniu.",
-        "price": "1 529 €"
+        "price": "1 549 €"
       }
     ],
     "notes": [

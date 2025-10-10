@@ -3,7 +3,6 @@
 import type React from "react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -77,8 +76,9 @@ export function Contact() {
             Sme pripravení pomôcť vašej stavbe rásť
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-            Pošlite nám základné informácie o projekte – ozveme sa do {config.contact.responseTime} s
-            návrhom lešenia a cenovou kalkuláciou.
+            Pošlite nám základné informácie o projekte – ozveme sa do{" "}
+            {config.contact.responseTime} s návrhom lešenia a cenovou
+            kalkuláciou.
           </p>
         </ScrollReveal>
 

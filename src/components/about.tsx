@@ -11,19 +11,6 @@ export function About() {
     "Flexibilné riešenia na mieru – predaj aj prenájom",
   ];
 
-  const highlights = [
-    {
-      title: "Osobný prístup",
-      description:
-        "Každý projekt riešime individuálne – s dôrazom na bezpečnosť, rozpočet a harmonogram.",
-    },
-    {
-      title: "Logistika bez čakania",
-      description:
-        "Komponenty držíme skladom, aby ste mohli stavať okamžite bez zbytočných prestojov.",
-    },
-  ];
-
   return (
     <section
       id="o-nas"
@@ -83,22 +70,6 @@ export function About() {
                   Vaša spokojnosť je pre nás prioritou.
                 </div>
               </div>
-
-              {/* <div className="grid gap-5 sm:grid-cols-2">
-                {highlights.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-border/60 bg-background/90 p-5 shadow-[0_18px_46px_-42px_rgba(15,23,42,0.6)]"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-yellow-700">
-                      {item.title}
-                    </p>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div> */}
             </div>
           </ScrollReveal>
 
