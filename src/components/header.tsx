@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Facebook, Instagram, ArrowUpRight } from "lucide-react";
 import config from "@/data/config.json";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const NAV_LINKS = [
   { label: "Domov", target: "domov" },
@@ -83,6 +84,7 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-1.5 xl:gap-2.5 lg:flex">
+            <ModeToggle isScrolled={isScrolled} />
             <div className="flex items-center gap-1 xl:gap-2.5">
               <a
                 href={config.socialMedia.instagram}
@@ -122,22 +124,25 @@ export function Header() {
             </Button>
           </div>
 
-          <button
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className={[
-              "inline-flex items-center justify-center rounded-full border p-2 transition hover:border-yellow-500/50 hover:bg-yellow-500/10 lg:hidden",
-              isScrolled
-                ? "border-border/60 text-foreground"
-                : "border-white/40 text-white",
-            ].join(" ")}
-            aria-label="Toggle navigation menu"
-          >
-            {isMenuOpen ? (
-              <X className="size-6" />
-            ) : (
-              <Menu className="size-6" />
-            )}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ModeToggle isScrolled={isScrolled} />
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className={[
+                "inline-flex items-center justify-center rounded-full border p-2 transition hover:border-yellow-500/50 hover:bg-yellow-500/10",
+                isScrolled
+                  ? "border-border/60 text-foreground"
+                  : "border-white/40 text-white",
+              ].join(" ")}
+              aria-label="Toggle navigation menu"
+            >
+              {isMenuOpen ? (
+                <X className="size-6" />
+              ) : (
+                <Menu className="size-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (

@@ -44,16 +44,14 @@
 }
 
 :root {
-  /* Spacing system - 8px grid */
-  --spacing-unit: 0.5rem; /* 8px base */
+  --spacing-unit: 0.5rem;
 
-  /* Border radius tokens */
-  --radius-sm: 0.5rem; /* 8px */
-  --radius-md: 0.75rem; /* 12px */
-  --radius-lg: 1rem; /* 16px */
-  --radius-xl: 1.25rem; /* 20px */
-  --radius-2xl: 1.5rem; /* 24px */
-  --radius: 1rem; /* Default */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius: 1rem;
 
   --background: oklch(0.99 0.002 85);
   --foreground: oklch(0.15 0.005 285);
@@ -70,8 +68,8 @@
   --accent: oklch(0.97 0.003 85);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.003 85);
-  --input: oklch(0.90 0.003 85);
+  --border: oklch(0.9 0.003 85);
+  --input: oklch(0.9 0.003 85);
   --ring: oklch(0.65 0.18 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -126,8 +124,27 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+  }
+
   body {
     @apply bg-background text-foreground;
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+  }
+
+  * {
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 100ms;
+  }
+
+  *[class*="transition-"],
+  *[class*="duration-"],
+  *[class*="animate-"] {
+    transition-duration: inherit;
   }
 }
 
