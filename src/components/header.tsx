@@ -54,7 +54,7 @@ export function Header() {
           >
             <span
               className={[
-                "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-transparent bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition",
+                "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-transparent bg-transparent px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition whitespace-nowrap",
                 isScrolled
                   ? "text-foreground/70 hover:text-foreground"
                   : "text-white/90 hover:text-white",
