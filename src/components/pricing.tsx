@@ -163,7 +163,7 @@ export function Pricing() {
           <Button
             size="default"
             onClick={scrollToContact}
-            className="rounded-full bg-yellow-500 px-8 py-5 text-xs font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-yellow-400"
+            className="rounded-full bg-yellow-500 px-6 py-5 text-[10px] sm:px-8 sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-black transition hover:bg-yellow-400 w-[90%] max-w-md sm:w-auto"
           >
             Kontaktujte nás pre cenovú ponuku
           </Button>

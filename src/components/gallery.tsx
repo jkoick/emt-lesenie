@@ -20,11 +20,36 @@ export function Gallery() {
     }
   };
 
-  const images = config.images.gallery.map((img) => ({
-    src: `/images/${img.filename}`,
-    alt: img.description,
-    title: img.title,
-  }));
+  const getImageWithFallback = (filename: string) => {
+    const baseName = filename.replace(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
+    const extensions = ['jpg', 'JPG', 'jpeg', 'JPEG'];
+
+    return {
+      src: `/images/${filename}`,
+      fallbacks: extensions.map(ext => `/images/${baseName}.${ext}`)
+    };
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>, fallbacks: string[]) => {
+    const img = e.currentTarget;
+    const currentSrc = img.src;
+
+    // Find next fallback that hasn't been tried
+    const fallback = fallbacks.find(f => !currentSrc.includes(f));
+    if (fallback) {
+      img.src = fallback;
+    }
+  };
+
+  const images = config.images.gallery.map((img) => {
+    const imageData = getImageWithFallback(img.filename);
+    return {
+      src: imageData.src,
+      fallbacks: imageData.fallbacks,
+      alt: img.description,
+      title: img.title,
+    };
+  });
 
   const layoutClasses = [
     "lg:col-span-4 lg:row-span-2",
@@ -92,6 +117,7 @@ export function Gallery() {
                 <img
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
+                  onError={(e) => handleImageError(e, image.fallbacks)}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
                 {/* Mobile: overlay always visible */}
@@ -146,6 +172,7 @@ export function Gallery() {
                 <img
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
+                  onError={(e) => handleImageError(e, image.fallbacks)}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
                 {/* Desktop: overlay appears on hover */}
@@ -203,6 +230,7 @@ export function Gallery() {
                 <img
                   src={images[selectedImage].src || "/placeholder.svg"}
                   alt={images[selectedImage].alt}
+                  onError={(e) => handleImageError(e, images[selectedImage].fallbacks)}
                   className="h-full w-full object-contain"
                 />
 
@@ -243,6 +271,7 @@ export function Gallery() {
                     <img
                       src={image.src || "/placeholder.svg"}
                       alt={image.alt}
+                      onError={(e) => handleImageError(e, image.fallbacks)}
                       className="h-full w-full object-cover"
                     />
                     {index === selectedImage && (
