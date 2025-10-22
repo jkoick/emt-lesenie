@@ -9,6 +9,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import config from "@/data/config.json";
+import emailjs from "@emailjs/browser";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -17,13 +18,44 @@ export function Contact() {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the form data to your backend
-    alert("Ďakujeme za vašu správu! Čoskoro vás budeme kontaktovať.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      await emailjs.send(
+        config.emailjs.serviceId,
+        config.emailjs.templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        config.emailjs.publicKey
+      );
+
+      setSubmitStatus({
+        type: "success",
+        message: "Ďakujeme za vašu správu! Čoskoro vás budeme kontaktovať.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Nastala chyba pri odosielaní správy. Skúste to prosím znova.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -225,13 +257,26 @@ export function Contact() {
                   účely prípravy cenovej ponuky.
                 </div>
 
+                {submitStatus.type && (
+                  <div
+                    className={`rounded-xl border px-5 py-3.5 text-sm leading-relaxed ${
+                      submitStatus.type === "success"
+                        ? "border-green-500/60 bg-green-500/10 text-green-700"
+                        : "border-red-500/60 bg-red-500/10 text-red-700"
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
+
                 <div className="flex flex-col items-center gap-3 pt-2 text-center">
                   <Button
                     type="submit"
                     size="default"
-                    className="w-full sm:w-auto rounded-full bg-yellow-500 px-10 py-5 text-xs font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-yellow-400"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto rounded-full bg-yellow-500 px-10 py-5 text-xs font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-yellow-400 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Odoslať správu
+                    {isSubmitting ? "Odosiela sa..." : "Odoslať správu"}
                   </Button>
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
                     odpovieme do {config.contact.responseTime}

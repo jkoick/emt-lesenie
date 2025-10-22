@@ -78,9 +78,14 @@
     "addressDescription": "Sklad máme v súkromných priestoroch kde vieme flexibilne reagovať.",
     "responseTime": "24 hodín"
   },
+  "emailjs": {
+    "serviceId": "service_s3r5ymf",
+    "templateId": "template_gsuapkq",
+    "publicKey": "9oc93w2s81ny7fhVV"
+  },
   "socialMedia": {
-    "facebook": "https://facebook.com",
-    "instagram": "https://instagram.com"
+    "facebook": "https://www.facebook.com/EmtLesenieMichalovce",
+    "instagram": "https://www.instagram.com/emt_lesenie_mi/"
   },
   "pricing": {
     "usedScaffolding": [

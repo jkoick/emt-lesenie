@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Facebook, Instagram, ArrowUpRight } from "lucide-react";
 import config from "@/data/config.json";
-import { ModeToggle } from "@/components/mode-toggle";
 
 const NAV_LINKS = [
   { label: "Domov", target: "domov" },
@@ -84,7 +83,6 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-1.5 xl:gap-2.5 lg:flex">
-            <ModeToggle isScrolled={isScrolled} />
             <div className="flex items-center gap-1 xl:gap-2.5">
               <a
                 href={config.socialMedia.instagram}
@@ -125,7 +123,6 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <ModeToggle isScrolled={isScrolled} />
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
               className={[
