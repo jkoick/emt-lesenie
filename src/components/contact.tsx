@@ -8,10 +8,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
-import config from "@/data/config.json";
+import { useConfig } from "@/hooks/useConfig";
 import emailjs from "@emailjs/browser";
 
 export function Contact() {
+  const { config } = useConfig();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,6 +27,8 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!config) return;
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
@@ -67,7 +70,7 @@ export function Contact() {
     }));
   };
 
-  const contactMethods = [
+  const contactMethods = config ? [
     {
       icon: Phone,
       title: "Tel",
@@ -89,7 +92,7 @@ export function Contact() {
       href: undefined,
       description: config.contact.addressDescription,
     },
-  ];
+  ] : [];
 
   return (
     <section
@@ -109,7 +112,7 @@ export function Contact() {
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
             Pošlite nám základné informácie o projekte – ozveme sa do{" "}
-            {config.contact.responseTime} s návrhom lešenia a cenovou
+            {config?.contact.responseTime || "24 hodín"} s návrhom lešenia a cenovou
             kalkuláciou.
           </p>
         </ScrollReveal>
@@ -279,7 +282,7 @@ export function Contact() {
                     {isSubmitting ? "Odosiela sa..." : "Odoslať správu"}
                   </Button>
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                    odpovieme do {config.contact.responseTime}
+                    odpovieme do {config?.contact.responseTime || "24 hodín"}
                   </p>
                 </div>
               </form>

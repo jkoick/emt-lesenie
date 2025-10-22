@@ -5,9 +5,10 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ArrowUpRight, Phone } from "lucide-react";
-import config from "@/data/config.json";
+import { useConfig } from "@/hooks/useConfig";
 
 export function Hero() {
+  const { config } = useConfig();
   const sectionRef = useRef<HTMLElement | null>(null);
   const backgroundRef = useRef<HTMLDivElement | null>(null);
 
@@ -96,7 +97,7 @@ export function Hero() {
           ref={backgroundRef}
           className="absolute inset-0 bg-cover bg-center will-change-transform"
           style={{
-            backgroundImage: `url('/images/${config.images.hero.filename}')`,
+            backgroundImage: config ? `url('/images/${config.images.hero.filename}')` : 'none',
             transform: "translateY(0px) scale(1.08)",
           }}
         />

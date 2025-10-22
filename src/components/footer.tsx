@@ -1,9 +1,12 @@
+"use client";
+
 import { Instagram, Facebook } from "lucide-react";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
-import config from "@/data/config.json";
+import { useConfig } from "@/hooks/useConfig";
 
 export function Footer() {
+  const { config } = useConfig();
   const navigation = [
     { label: "Domov", href: "#domov" },
     { label: "O nás", href: "#o-nas" },
@@ -34,24 +37,28 @@ export function Footer() {
                 pripravené na montáž.
               </p>
               <div className="flex flex-wrap items-center gap-3.5">
-                <a
-                  href={config.socialMedia.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex size-10 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="size-5" />
-                </a>
-                <a
-                  href={config.socialMedia.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex size-11 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="size-5" />
-                </a>
+                {config && (
+                  <>
+                    <a
+                      href={config.socialMedia.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex size-10 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="size-5" />
+                    </a>
+                    <a
+                      href={config.socialMedia.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex size-11 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="size-5" />
+                    </a>
+                  </>
+                )}
               </div>
             </div>
 
@@ -79,26 +86,30 @@ export function Footer() {
                   Kontakt
                 </h4>
                 <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
-                  <li>
-                    <a
-                      href={`tel:${config.contact.phone.replace(/\s/g, "")}`}
-                      className="font-semibold text-foreground transition hover:text-yellow-700"
-                    >
-                      {config.contact.phone}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`mailto:${config.contact.email}`}
-                      className="font-semibold text-foreground transition hover:text-yellow-700"
-                    >
-                      {config.contact.email}
-                    </a>
-                  </li>
-                  <li>{config.contact.address}</li>
-                  <li className="rounded-[18px] border border-border/50 bg-background/80 px-4 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-                    Reagujeme do {config.contact.responseTime}
-                  </li>
+                  {config && (
+                    <>
+                      <li>
+                        <a
+                          href={`tel:${config.contact.phone.replace(/\s/g, "")}`}
+                          className="font-semibold text-foreground transition hover:text-yellow-700"
+                        >
+                          {config.contact.phone}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={`mailto:${config.contact.email}`}
+                          className="font-semibold text-foreground transition hover:text-yellow-700"
+                        >
+                          {config.contact.email}
+                        </a>
+                      </li>
+                      <li>{config.contact.address}</li>
+                      <li className="rounded-[18px] border border-border/50 bg-background/80 px-4 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                        Reagujeme do {config.contact.responseTime}
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>

@@ -4,10 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
-import config from "@/data/config.json";
+import { useConfig } from "@/hooks/useConfig";
 
 export function Pricing() {
-  const { usedScaffolding, newComponents, sets, notes } = config.pricing;
+  const { config } = useConfig();
+  const { usedScaffolding, newComponents, sets, notes } = config?.pricing || { usedScaffolding: [], newComponents: [], sets: [], notes: [] };
 
   const scrollToContact = () => {
     const element = document.getElementById("kontakt");
@@ -168,7 +169,7 @@ export function Pricing() {
             Kontaktujte nás pre cenovú ponuku
           </Button>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-            Reagujeme do {config.contact.responseTime}
+            Reagujeme do {config?.contact.responseTime || "24 hodín"}
           </p>
         </ScrollReveal>
       </div>

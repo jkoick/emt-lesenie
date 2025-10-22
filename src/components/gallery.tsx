@@ -4,9 +4,10 @@ import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
-import config from "@/data/config.json";
+import { useConfig } from "@/hooks/useConfig";
 
 export function Gallery() {
+  const { config } = useConfig();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +42,7 @@ export function Gallery() {
     }
   };
 
-  const images = config.images.gallery.map((img) => {
+  const images = config ? config.images.gallery.map((img) => {
     const imageData = getImageWithFallback(img.filename);
     return {
       src: imageData.src,
@@ -49,7 +50,7 @@ export function Gallery() {
       alt: img.description,
       title: img.title,
     };
-  });
+  }) : [];
 
   const layoutClasses = [
     "lg:col-span-4 lg:row-span-2",

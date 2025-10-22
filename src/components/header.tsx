@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Facebook, Instagram, ArrowUpRight } from "lucide-react";
-import config from "@/data/config.json";
+import { useConfig } from "@/hooks/useConfig";
 
 const NAV_LINKS = [
   { label: "Domov", target: "domov" },
@@ -15,6 +15,7 @@ const NAV_LINKS = [
 ];
 
 export function Header() {
+  const { config } = useConfig();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -84,34 +85,38 @@ export function Header() {
 
           <div className="hidden items-center gap-1.5 xl:gap-2.5 lg:flex">
             <div className="flex items-center gap-1 xl:gap-2.5">
-              <a
-                href={config.socialMedia.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={[
-                  "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-transparent bg-transparent px-2 xl:px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition",
-                  isScrolled
-                    ? "text-foreground/70 hover:text-foreground"
-                    : "text-white/90 hover:text-white",
-                ].join(" ")}
-                aria-label="Instagram"
-              >
-                <Instagram className="size-4 xl:size-5" />
-              </a>
-              <a
-                href={config.socialMedia.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={[
-                  "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-transparent bg-transparent px-2 xl:px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition",
-                  isScrolled
-                    ? "text-foreground/70 hover:text-foreground"
-                    : "text-white/90 hover:text-white",
-                ].join(" ")}
-                aria-label="Facebook"
-              >
-                <Facebook className="size-4 xl:size-5" />
-              </a>
+              {config && (
+                <>
+                  <a
+                    href={config.socialMedia.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={[
+                      "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-transparent bg-transparent px-2 xl:px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition",
+                      isScrolled
+                        ? "text-foreground/70 hover:text-foreground"
+                        : "text-white/90 hover:text-white",
+                    ].join(" ")}
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="size-4 xl:size-5" />
+                  </a>
+                  <a
+                    href={config.socialMedia.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={[
+                      "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-transparent bg-transparent px-2 xl:px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] transition",
+                      isScrolled
+                        ? "text-foreground/70 hover:text-foreground"
+                        : "text-white/90 hover:text-white",
+                    ].join(" ")}
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="size-4 xl:size-5" />
+                  </a>
+                </>
+              )}
             </div>
             <Button
               size="sm"
@@ -158,24 +163,28 @@ export function Header() {
               </div>
               <div className="flex items-center justify-between gap-3 rounded-xl border border-border/70 bg-background/80 px-3 py-2.5">
                 <div className="flex items-center gap-2">
-                  <a
-                    href={config.socialMedia.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex size-9 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="size-4" />
-                  </a>
-                  <a
-                    href={config.socialMedia.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex size-9 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="size-4" />
-                  </a>
+                  {config && (
+                    <>
+                      <a
+                        href={config.socialMedia.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex size-9 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
+                        aria-label="Instagram"
+                      >
+                        <Instagram className="size-4" />
+                      </a>
+                      <a
+                        href={config.socialMedia.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex size-9 items-center justify-center rounded-full border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 transition hover:bg-yellow-500/20"
+                        aria-label="Facebook"
+                      >
+                        <Facebook className="size-4" />
+                      </a>
+                    </>
+                  )}
                 </div>
                 <Button
                   size="sm"
