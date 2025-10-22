@@ -1,0 +1,11 @@
+# robots.txt pre EMT Lešenie
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.emtlesenie.sk/sitemap.xml
+
+# Disallow admin/private areas (ak existujú)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /api/

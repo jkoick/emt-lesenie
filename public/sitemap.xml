@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.emtlesenie.sk/</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.emtlesenie.sk/images/hero-background.jpg</image:loc>
+      <image:caption>Lešenie na bytovom dome</image:caption>
+    </image:image>
+  </url>
+
+  <!-- O nás section -->
+  <url>
+    <loc>https://www.emtlesenie.sk/#about</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Služby section -->
+  <url>
+    <loc>https://www.emtlesenie.sk/#services</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Cenník section -->
+  <url>
+    <loc>https://www.emtlesenie.sk/#pricing</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Galéria section -->
+  <url>
+    <loc>https://www.emtlesenie.sk/#gallery</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Kontakt section -->
+  <url>
+    <loc>https://www.emtlesenie.sk/#contact</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
