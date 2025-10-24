@@ -110,7 +110,7 @@ export function Gallery() {
           >
             {images.map((image, index) => (
               <button
-                key={image.title}
+                key={index}
                 type="button"
                 className="group relative block h-[400px] w-[85vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-border/80 bg-card/90 shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={() => setSelectedImage(index)}
@@ -162,7 +162,7 @@ export function Gallery() {
 
         <div className="mt-12 hidden gap-4 lg:grid lg:grid-cols-3 lg:auto-rows-[280px] xl:auto-rows-[320px]">
           {images.map((image, index) => (
-            <ScrollReveal key={image.title} delay={index * 70}>
+            <ScrollReveal key={index} delay={index * 70}>
               <button
                 type="button"
                 className={`group relative block h-full w-full overflow-hidden rounded-2xl border border-border/80 bg-card/90 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
@@ -261,7 +261,7 @@ export function Gallery() {
               <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                 {images.map((image, index) => (
                   <button
-                    key={image.title}
+                    key={index}
                     onClick={() => setSelectedImage(index)}
                     className={`relative h-20 w-32 shrink-0 overflow-hidden rounded-lg border-2 transition ${
                       index === selectedImage

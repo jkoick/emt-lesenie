@@ -8,7 +8,12 @@ import { useConfig } from "@/hooks/useConfig";
 
 export function Pricing() {
   const { config } = useConfig();
-  const { usedScaffolding, newComponents, sets, notes } = config?.pricing || { usedScaffolding: [], newComponents: [], sets: [], notes: [] };
+  const { usedScaffolding, newComponents, sets, notes } = config?.pricing || {
+    usedScaffolding: [],
+    newComponents: [],
+    sets: [],
+    notes: [],
+  };
 
   const scrollToContact = () => {
     const element = document.getElementById("kontakt");
@@ -34,9 +39,11 @@ export function Pricing() {
             Jasné ceny, férové podmienky
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-            Cena závisí od metráže a dĺžky prenájmu. Základné položky sme
-            prehľadne zoradili nižšie – pre individuálnu ponuku nám napíšte a
-            radi pripravíme detailný rozpočet.
+            Cena prenájmu lešenia závisí od množstva lešenia a dĺžky prenájmu.
+            Základné položky predaja lešenia sme prehľadne zoradili nižšie- pre
+            individuálnu ponuku nám napíšte a radi pripravíme detailný rozpočet.
+            Lešenie vieme po dohode aj doviezť. Pre viac informácii nás
+            neváhajte kontaktovať.
           </p>
         </ScrollReveal>
 
@@ -71,8 +78,8 @@ export function Pricing() {
                   </div>
                 ))}
                 <div className="rounded-[22px] border border-yellow-500/35 bg-yellow-500/10 px-5 py-4 mt-4 text-sm font-semibold text-yellow-800">
-                  Potrebujete inú konfiguráciu? Sklad vám vyskladáme tak, aby
-                  presne kopíroval pôdorys.
+                  Potrebujete inú konfiguráciu? Lešenie Vám vyskladáme podľa
+                  Vašej potreby.
                 </div>
               </CardContent>
             </ScrollReveal>
