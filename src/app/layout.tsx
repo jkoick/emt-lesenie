@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -11,7 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "EMT Lešenie Michalovce | Prenájom a predaj lešenia",
-  description: "Profesionálny prenájom a predaj lešenia v regióne Michalovce. Rýchla montáž, certifikované komponenty, skúsený tím. Kontaktujte nás ☎ +421 904 350 340",
+  description:
+    "Profesionálny prenájom a predaj lešenia v regióne Michalovce. Rýchla montáž, certifikované komponenty, skúsený tím. Kontaktujte nás ☎ +421 904 350 340",
   keywords: [
     "lešenie",
     "lešenie michalovce",
@@ -36,7 +36,8 @@ export const metadata: Metadata = {
     locale: "sk_SK",
     url: "https://www.emtlesenie.sk",
     title: "EMT Lešenie Michalovce | Prenájom a predaj lešenia",
-    description: "Profesionálny prenájom a predaj lešenia v regióne Michalovce. Rýchla montáž, certifikované komponenty, skúsený tím.",
+    description:
+      "Profesionálny prenájom a predaj lešenia v regióne Michalovce. Rýchla montáž, certifikované komponenty, skúsený tím.",
     siteName: "EMT Lešenie",
     images: [
       {
@@ -50,7 +51,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "EMT Lešenie Michalovce | Prenájom a predaj lešenia",
-    description: "Profesionálny prenájom a predaj lešenia v regióne Michalovce. Rýchla montáž, certifikované komponenty.",
+    description:
+      "Profesionálny prenájom a predaj lešenia v regióne Michalovce. Rýchla montáž, certifikované komponenty.",
     images: ["/images/hero-background.jpg"],
   },
   robots: {
@@ -169,7 +171,6 @@ export default function RootLayout({
           forcedTheme="light"
         >
           {children}
-          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
