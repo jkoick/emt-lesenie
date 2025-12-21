@@ -16,7 +16,7 @@ const SERVICES = [
     icon: ShoppingCart,
     title: "Predaj lešenia",
     description:
-      "Ponúkame kvalitné rámové lešenie – za výhodné ceny. Pre firmy aj súkromné osoby.",
+      "Ponúkame kvalitné certifikované rámové lešenie za výhodné ceny. Pre firmy aj súkromné osoby.",
   },
 ];
 

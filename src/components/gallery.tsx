@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronLeft, ChevronRight, X, ChevronDown, ChevronUp } from "lucide-react";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useConfig } from "@/hooks/useConfig";
@@ -9,7 +9,21 @@ import { useConfig } from "@/hooks/useConfig";
 export function Gallery() {
   const { config } = useConfig();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const INITIAL_DISPLAY_COUNT = 12;
+
+  useEffect(() => {
+    if (selectedImage !== null && thumbnailRefs.current[selectedImage]) {
+      thumbnailRefs.current[selectedImage]?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [selectedImage]);
 
   const scrollCarousel = (direction: "left" | "right") => {
     if (carouselRef.current) {
@@ -62,13 +76,7 @@ export function Gallery() {
   ];
 
   return (
-    <section
-      id="galeria"
-      className="relative overflow-hidden bg-secondary/70 py-20 md:py-24"
-    >
-      <div className="absolute inset-x-0 top-[-220px] h-[380px] bg-gradient-to-b from-yellow-200/25 via-transparent to-transparent blur-3xl" />
-      <div className="absolute inset-y-0 right-[-30%] hidden w-[45%] bg-gradient-to-l from-yellow-200/25 via-transparent to-transparent blur-3xl xl:block" />
-
+    <section className="relative overflow-hidden py-24 text-foreground" id="galeria">
       <div className="container relative mx-auto max-w-6xl px-4">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <ScrollReveal className="max-w-2xl space-y-5">
@@ -161,43 +169,64 @@ export function Gallery() {
         </div>
 
         <div className="mt-12 hidden gap-4 lg:grid lg:grid-cols-3 lg:auto-rows-[280px] xl:auto-rows-[320px]">
-          {images.map((image, index) => (
-            <ScrollReveal key={index} delay={index * 70}>
-              <button
-                type="button"
-                className={`group relative block h-full w-full overflow-hidden rounded-2xl border border-border/80 bg-card/90 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                  layoutClasses[index % layoutClasses.length]
-                }`}
-                onClick={() => setSelectedImage(index)}
-              >
-                <img
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  onError={(e) => handleImageError(e, image.fallbacks)}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                />
-                {/* Desktop: overlay appears on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-90" />
-                <div className="absolute inset-x-0 bottom-0 p-4 text-left text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  {image.title && (
-                    <h3 className="text-lg font-semibold leading-tight">
-                      {image.title}
-                    </h3>
-                  )}
-                  <p className={`text-[10px] font-semibold uppercase tracking-[0.28em] text-yellow-200/75 ${image.title ? 'mt-2' : ''}`}>
-                    EMT Lešenie
-                  </p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-yellow-200/70 transition-colors group-hover:text-yellow-200">
-                    Zobraziť detail{" "}
-                    <span className="text-yellow-300 transition-transform group-hover:translate-x-0.5">
-                      →
+          {(isExpanded ? images : images.slice(0, INITIAL_DISPLAY_COUNT)).map(
+            (image, index) => (
+              <ScrollReveal key={index} delay={Math.floor(index / 3) * 100}>
+                <button
+                  type="button"
+                  className={`group relative block h-full w-full overflow-hidden rounded-2xl border border-border/80 bg-card/90 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${layoutClasses[index % layoutClasses.length]
+                    }`}
+                  onClick={() => setSelectedImage(index)}
+                >
+                  <img
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.alt}
+                    onError={(e) => handleImageError(e, image.fallbacks)}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  {/* Desktop: overlay appears on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-left text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    {image.title && (
+                      <h3 className="text-lg font-semibold leading-tight">
+                        {image.title}
+                      </h3>
+                    )}
+                    <p className={`text-[10px] font-semibold uppercase tracking-[0.28em] text-yellow-200/75 ${image.title ? 'mt-2' : ''}`}>
+                      EMT Lešenie
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-yellow-200/70 transition-colors group-hover:text-yellow-200">
+                      Zobraziť detail{" "}
+                      <span className="text-yellow-300 transition-transform group-hover:translate-x-0.5">
+                        →
+                      </span>
                     </span>
-                  </span>
-                </div>
-              </button>
-            </ScrollReveal>
-          ))}
+                  </div>
+                </button>
+              </ScrollReveal>
+            ))}
         </div>
+
+        {images.length > INITIAL_DISPLAY_COUNT && (
+          <div className="relative mt-8 hidden lg:block">
+            {!isExpanded && (
+              <div className="absolute bottom-full left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
+            )}
+            <div className="flex justify-center">
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="group relative flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-700 transition-all hover:bg-yellow-500/20 hover:text-yellow-800"
+              >
+                <span>{isExpanded ? "Zobraziť menej" : "Načítať ďalšie"}</span>
+                {isExpanded ? (
+                  <ChevronUp className="size-4" />
+                ) : (
+                  <ChevronDown className="size-4" />
+                )}
+              </button>
+            </div>
+          </div>
+        )}
 
         {selectedImage !== null && (
           <div
@@ -262,12 +291,14 @@ export function Gallery() {
                 {images.map((image, index) => (
                   <button
                     key={index}
+                    ref={(el) => {
+                      thumbnailRefs.current[index] = el;
+                    }}
                     onClick={() => setSelectedImage(index)}
-                    className={`relative h-20 w-32 shrink-0 overflow-hidden rounded-lg border-2 transition ${
-                      index === selectedImage
-                        ? "border-yellow-500 ring-2 ring-yellow-500/50"
-                        : "border-white/20 hover:border-white/40"
-                    }`}
+                    className={`relative h-20 w-32 shrink-0 overflow-hidden rounded-lg border-2 transition ${index === selectedImage
+                      ? "border-yellow-500 ring-2 ring-yellow-500/50"
+                      : "border-white/20 hover:border-white/40"
+                      }`}
                   >
                     <img
                       src={image.src || "/placeholder.svg"}

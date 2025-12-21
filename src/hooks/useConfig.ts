@@ -19,6 +19,11 @@ export interface ConfigType {
     }>;
   };
   contact: {
+    phones?: string[];
+    emails?: Array<{
+      label?: string;
+      value: string;
+    }>;
     phone: string;
     email: string;
     address: string;
@@ -49,6 +54,15 @@ export interface ConfigType {
       price: string;
     }>;
     notes: string[];
+  };
+  company: {
+    name: string;
+    legalName: string;
+    headquarters: string;
+    operation: string;
+    ico: string;
+    dic: string;
+    icDph: string;
   };
 }
 

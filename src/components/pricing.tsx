@@ -39,11 +39,7 @@ export function Pricing() {
             Jasné ceny, férové podmienky
           </h2>
           <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-            Cena prenájmu lešenia závisí od množstva lešenia a dĺžky prenájmu.
-            Základné položky predaja lešenia sme prehľadne zoradili nižšie- pre
-            individuálnu ponuku nám napíšte a radi pripravíme detailný rozpočet.
-            Lešenie vieme po dohode aj doviezť. Pre viac informácii nás
-            neváhajte kontaktovať.
+            Cena prenájmu lešenia závisí od množstva lešenia a dĺžky prenájmu. Základné položky predaja lešenia sme prehľadne zoradili nižšie. Pre individuálnu ponuku nám napíšte a radi Vám pripravíme detailný rozpočet pre Váš projekt. Súčasťou služieb je aj dovoz lešenia. Pre viac informácií nás neváhajte kontaktovať.
           </p>
         </ScrollReveal>
 

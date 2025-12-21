@@ -68,10 +68,84 @@
         "filename": "gallery-12.jpg",
         "title": "Spojovací materiál",
         "description": ""
+      },
+      {
+        "filename": "gallery-13.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-14.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-15.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-16.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-17.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-18.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-19.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-20.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-21.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-22.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-23.jpg",
+        "title": "",
+        "description": ""
+      },
+      {
+        "filename": "gallery-24.jpg",
+        "title": "",
+        "description": ""
       }
     ]
   },
   "contact": {
+    "phones": [
+      "+421 904 350 340",
+      "+421 917 418 829"
+    ],
+    "emails": [
+      {
+        "label": "Objednávky, dopyty:",
+        "value": "emtlesenie@gmail.com"
+      },
+      {
+        "label": "Fakturácie:",
+        "value": "ermatech.sro@gmail.com"
+      }
+    ],
     "phone": "+421 904 350 340",
     "email": "emtlesenie@gmail.com",
     "address": "Petrovce nad Laborcom",
@@ -108,7 +182,11 @@
       {
         "name": "Okopový plech používaný",
         "price": "6,90 €"
-      }
+      },
+      {
+    "name": "Polovičný rám 8,1m výška 1m",
+    "price": "24,50 €"
+  }
     ],
     "newComponents": [
       {
@@ -161,5 +239,14 @@
       "Lešenie možno vyskladať individuálne podľa potreby zákazníka.",
       "Ceny sú uvádzané bez DPH. Pre platcov DPH účtujeme s prenosom daňovej povinnosti."
     ]
+  },
+  "company": {
+    "name": "EMT lešenie",
+    "legalName": "Ermatech s.r.o.",
+    "headquarters": "Sídlo: Michalovce",
+    "operation": "Prevádzka: Petrovce nad Laborcom",
+    "ico": "IČO: 53033264",
+    "dic": "DIČ: 2121229627",
+    "icDph": "IČ DPH: SK2121229627"
   }
 }

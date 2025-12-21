@@ -70,29 +70,56 @@ export function Contact() {
     }));
   };
 
-  const contactMethods = config ? [
-    {
-      icon: Phone,
-      title: "Tel",
-      value: config.contact.phone,
-      href: `tel:${config.contact.phone.replace(/\s/g, "")}`,
-      description: "",
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      value: config.contact.email,
-      href: `mailto:${config.contact.email}`,
-      description: "",
-    },
-    {
-      icon: MapPin,
-      title: "Adresa",
-      value: config.contact.address,
-      href: undefined,
-      description: config.contact.addressDescription,
-    },
-  ] : [];
+  const contactMethods = config
+    ? [
+      {
+        icon: Phone,
+        title: "Tel",
+        items: config.contact.phones
+          ? config.contact.phones.map((phone) => ({
+            label: undefined,
+            value: phone,
+            href: `tel:${phone.replace(/\s/g, "")}`,
+          }))
+          : [
+            {
+              label: undefined,
+              value: config.contact.phone,
+              href: `tel:${config.contact.phone.replace(/\s/g, "")}`,
+            },
+          ],
+      },
+      {
+        icon: Mail,
+        title: "E-mail",
+        items: config.contact.emails
+          ? config.contact.emails.map((email) => ({
+            label: email.label,
+            value: email.value,
+            href: `mailto:${email.value}`,
+          }))
+          : [
+            {
+              label: undefined,
+              value: config.contact.email,
+              href: `mailto:${config.contact.email}`,
+            },
+          ],
+      },
+      {
+        icon: MapPin,
+        title: "Adresa",
+        description: config.contact.addressDescription,
+        items: [
+          {
+            label: undefined,
+            value: config.contact.address,
+            href: undefined,
+          },
+        ],
+      },
+    ]
+    : [];
 
   return (
     <section
@@ -134,7 +161,7 @@ export function Contact() {
                 </p>
               </div>
               <div className="grid gap-4 md:grid-cols-3">
-                {contactMethods.map((method, index) => (
+                {contactMethods.map((method) => (
                   <div
                     key={method.title}
                     className="rounded-[22px] border border-border/60 bg-background/85 p-5 shadow-sm"
@@ -143,24 +170,35 @@ export function Contact() {
                       <div className="rounded-xl bg-yellow-500/15 p-2.5 w-fit">
                         <method.icon className="size-5 text-yellow-600" />
                       </div>
-                      <div className="space-y-1.5">
+                      <div className="space-y-3">
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-yellow-700">
                           {method.title}
                         </p>
-                        {method.href ? (
-                          <a
-                            href={method.href}
-                            className="block text-base font-semibold text-foreground transition hover:text-yellow-700"
-                          >
-                            {method.value}
-                          </a>
-                        ) : (
-                          <p className="text-base font-semibold text-foreground">
-                            {method.value}
-                          </p>
-                        )}
+                        <div className="space-y-4">
+                          {method.items.map((item, i) => (
+                            <div key={i} className="flex flex-col gap-1">
+                              {item.label && (
+                                <span className="text-xs text-muted-foreground">
+                                  {item.label}
+                                </span>
+                              )}
+                              {item.href ? (
+                                <a
+                                  href={item.href}
+                                  className="block text-base font-semibold text-foreground transition hover:text-yellow-700"
+                                >
+                                  {item.value}
+                                </a>
+                              ) : (
+                                <p className="text-base font-semibold text-foreground">
+                                  {item.value}
+                                </p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
                         {method.description && (
-                          <p className="text-sm text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-muted-foreground leading-relaxed pt-1">
                             {method.description}
                           </p>
                         )}
@@ -262,11 +300,10 @@ export function Contact() {
 
                 {submitStatus.type && (
                   <div
-                    className={`rounded-xl border px-5 py-3.5 text-sm leading-relaxed ${
-                      submitStatus.type === "success"
-                        ? "border-green-500/60 bg-green-500/10 text-green-700"
-                        : "border-red-500/60 bg-red-500/10 text-red-700"
-                    }`}
+                    className={`rounded-xl border px-5 py-3.5 text-sm leading-relaxed ${submitStatus.type === "success"
+                      ? "border-green-500/60 bg-green-500/10 text-green-700"
+                      : "border-red-500/60 bg-red-500/10 text-red-700"
+                      }`}
                   >
                     {submitStatus.message}
                   </div>
