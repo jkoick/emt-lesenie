@@ -21,7 +21,7 @@ export function Footer() {
       <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-yellow-200/25 via-transparent to-transparent blur-3xl" />
       <div className="absolute inset-x-0 bottom-[-160px] h-[280px] bg-gradient-to-t from-yellow-200/30 via-transparent to-transparent blur-3xl" />
 
-      <div className="container relative mx-auto px-4 py-16">
+      <div className="container relative mx-auto max-w-6xl px-4 py-16">
         <ScrollReveal className="rounded-[32px] border border-border/60 bg-card/90 p-8 md:p-12 shadow-[0_52px_110px_-68px_rgba(15,23,42,0.75)]">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="space-y-6 lg:col-span-4">
@@ -34,7 +34,8 @@ export function Footer() {
               <p className="text-sm leading-relaxed text-muted-foreground max-w-md">
                 Prenájom, predaj a kompletné príslušenstvo rámového lešenia s
                 osobným prístupom. Konzultujeme, plánujeme a dodávame riešenia
-                pripravené na montáž.
+                pripravené na montáž. Radi vám poradíme, ako vyskladať lešenie, aby ste ušetrili čas
+                aj rozpočet. Ozvite sa ktoroukoľvek z nižšie uvedených ciest.
               </p>
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 {config && (

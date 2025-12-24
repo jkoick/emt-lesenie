@@ -145,7 +145,7 @@ export function Contact() {
         </ScrollReveal>
 
         <div className="mt-14 space-y-8">
-          <ScrollReveal className="relative overflow-hidden rounded-[28px] border border-border/70 bg-card/90 shadow-[0_34px_80px_-55px_rgba(15,23,42,0.6)]">
+          {/* <ScrollReveal className="relative overflow-hidden rounded-[28px] border border-border/70 bg-card/90 shadow-[0_34px_80px_-55px_rgba(15,23,42,0.6)]">
             <div className="absolute -top-24 left-8 h-44 w-44 rounded-full bg-yellow-500/20 blur-3xl" />
             <div className="relative space-y-6 p-7">
               <div>
@@ -208,7 +208,7 @@ export function Contact() {
                 ))}
               </div>
             </div>
-          </ScrollReveal>
+          </ScrollReveal> */}
 
           <ScrollReveal
             delay={120}
